@@ -71,7 +71,7 @@ jobs:
       id: deploy
       uses: azure/arm-deploy@v1
       with:
-        resourceGroupName: ${{ secrets.DEV_RG_NAME }}
+        resourceGroupName: ${{ env.DEV_RG_NAME }}
         template: ./infra/bicep/main.bicep
         parameters: \
             location=${{ env.DEV_LOCATION }} ` \
