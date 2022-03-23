@@ -3,16 +3,14 @@ name: Developer Environment Workflow
 on: pull_request
 
 env:
-  PROJECT_NAME: "AppDeploy-Azure"
-
   # The name of the resource group to be created.
-  DEV_RG_NAME: "RG-Dev-${{ env.PROJECT_NAME }}-${{ github.event.pull_request.number}}"
+  DEV_RG_NAME: "RG-Dev-AppDeploy-Azure-${{ github.event.pull_request.number}}"
 
   # The location to store the meta data for the deployment.
   DEV_LOCATION: "westeurope"
 
   # The name of the WebApp
-  DEV_WEBAPP_NAME: "DEV-${{ env.PROJECT_NAME }}-ADO40-${{ github.event.pull_request.number}}"
+  DEV_WEBAPP_NAME: "DEV-AppDeploy-Azure-ADO40-${{ github.event.pull_request.number}}"
 
 jobs:
   buildImage:
