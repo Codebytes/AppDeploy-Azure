@@ -73,14 +73,14 @@ jobs:
       with:
         resourceGroupName: ${{ env.DEV_RG_NAME }}
         template: ./infra/bicep/main.bicep
-        parameters: \
-            location=${{ env.DEV_LOCATION }} ` \
-            rgName=${{ env.DEV_RG_NAME }} ` \
-            webAppName=${{ env.DEV_WEBAPP_NAME}} ` \
-            dockerRegistryHost=${{ secrets.DOCKER_LOGIN_SERVER }} ` \
-            dockerRegistryServerUsername=${{ secrets.DOCKER_USERNAME }} ` \
-            dockerRegistryServerPassword=${{ secrets.DOCKER_PASSWORD }} ` \
-            dockerImage=appdeployazure-ado40:${{ github.sha }} `
+        parameters: |
+            location=${{ env.DEV_LOCATION }} \
+            rgName=${{ env.DEV_RG_NAME }} \
+            webAppName=${{ env.DEV_WEBAPP_NAME}} \
+            dockerRegistryHost=${{ secrets.DOCKER_LOGIN_SERVER }} \
+            dockerRegistryServerUsername=${{ secrets.DOCKER_USERNAME }} \
+            dockerRegistryServerPassword=${{ secrets.DOCKER_PASSWORD }}  \
+            dockerImage=appdeployazure-ado40:${{ github.sha }} \
         failOnStdErr: false
       
     - name: 'Run Azure webapp deploy action'
